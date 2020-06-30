@@ -1,0 +1,34 @@
+.SideBar
+  .SideBar__user_info
+    .TopItems
+      .TopItems__name
+        sample
+      %ul.TopItems__iconlist
+        %li.TopItems__iconlist__icon
+          = link_to "#" do
+            = icon('fas', 'edit', class:"icon-color") 
+        %li.TopItems__iconlist__icon
+          = link_to "#" do
+            = icon('fas', 'cog', class:"icon-color")
+            
+  .SideBar__group_list
+    .group
+      = link_to "#", class: "group__link" do
+        .group__name
+          techcamp
+        .group__message
+          まだメッセージはありません
+    .group
+      = link_to "#", class: "group__link" do
+        .group__name
+          techcamp
+        .group__message
+          まだメッセージはありません
+    .group
+      = link_to "#", class: "group__link" do
+        .group__name
+          techcamp
+        .group__message
+          まだメッセージはありません
+
+

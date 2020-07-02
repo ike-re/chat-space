@@ -2,41 +2,30 @@
   .GroupHeader
     .GroupHeader__info
       .GroupHeader__groupname
-        sample
+        = @group.name
       %ul.GroupHeader__memberlist
         Member :
         %li.GroupHeader__member
-          sample
+          - @group.users.each do |user|
+            = user.name
     .GroupHeader__edit
-      = link_to "#", class: "GroupHeader__editbutton" do
+      = link_to edit_group_path(@group), class: "GroupHeader__editbutton" do
         Edit
 
   .MessageList
+    = render @messages
     .MessageBox
       .MessageBox__info
         .MessageBox__info__username
-          test
         .MessageBox__info__date
-          2020年6月29日 18時18分
       .MessageBox__message
         %p.MessageBox__message__content
-          こんにちは よろしくよろしく
           
-    .MessageBox
-      .MessageBox__info
-        .MessageBox__info__username
-          test2
-        .MessageBox__info__date
-          2020年6月29日 18時33分
-      .MessageBox__message
-        %p.MessageBox__message__content
-          こんにちは よろしく--
-    
   .MessageForm
-    %form.new_message
+    = form_with model: [@group, @message], html: {class: "new_message"}, local: true do |f|
       .input_box
-        %input{type: "text", class:"input_box__text",placeholder:"type a message"}
-        %label{class:"input_box__image"}
-          = icon('fas','image', class:"image-icon")
-          %input{type: "file", class:"input_box__image__file"}
-      %input{type: "submit", class: "submit-btn",value:"send"}
+        = f.text_field :content, class: 'input_box__text', placeholder: 'type a message'
+        = f.label :image, class: 'input_box__image' do
+          = icon('far', 'image', class: 'image-icon')
+          = f.file_field :image, class: 'input_box__image__file'
+      = f.submit 'Send', class: 'submit-btn'

@@ -14,12 +14,11 @@
 
   .MessageList
     = render @messages
-    .MessageBox
-      .MessageBox__info
-        .MessageBox__info__username
-        .MessageBox__info__date
-      .MessageBox__message
-        %p.MessageBox__message__content
+    .MessageBox__info
+      .MessageBox__info__username
+      .MessageBox__info__date
+    .MessageBox__message
+      %p.MessageBox__message__content
           
   .MessageForm
     = form_with model: [@group, @message], html: {class: "new_message"}, local: true do |f|

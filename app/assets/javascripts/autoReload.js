@@ -31,7 +31,7 @@ $(function(){
           </div>
         </div>
         <div class="MessageBox__message">
-          <p class="MessageBox__message__contentt">
+          <p class="MessageBox__message__content">
             ${message.content}
           </p>
         </div>
@@ -71,4 +71,4 @@ $(function(){
     });
   };
   setInterval(reloadMessages, 7000);
-})
+});
